@@ -1,0 +1,66 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Public\\Public Projects\\Sample\\C-Sharp_Program\\c-sharp_coding_preparation\\Preparation\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{959788E4-9708-48D9-B923-7C5636FADCAA}|Programs\\Programs.csproj|c:\\users\\public\\public projects\\sample\\c-sharp_program\\c-sharp_coding_preparation\\preparation\\programs\\stringprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{959788E4-9708-48D9-B923-7C5636FADCAA}|Programs\\Programs.csproj|solutionrelative:programs\\stringprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{16A2D87D-44D8-4A84-813E-8FBEF3AB6E54}|MyPrograms\\MyPrograms.csproj|c:\\users\\public\\public projects\\sample\\c-sharp_program\\c-sharp_coding_preparation\\preparation\\myprograms\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{16A2D87D-44D8-4A84-813E-8FBEF3AB6E54}|MyPrograms\\MyPrograms.csproj|solutionrelative:myprograms\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{9a023b91-f344-3443-bbca-9c84bdec79b1}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "StringProgram.cs",
+              "DocumentMoniker": "C:\\Users\\Public\\Public Projects\\Sample\\C-Sharp_Program\\c-sharp_coding_preparation\\Preparation\\Programs\\StringProgram.cs",
+              "RelativeDocumentMoniker": "Programs\\StringProgram.cs",
+              "ToolTip": "C:\\Users\\Public\\Public Projects\\Sample\\C-Sharp_Program\\c-sharp_coding_preparation\\Preparation\\Programs\\StringProgram.cs",
+              "RelativeToolTip": "Programs\\StringProgram.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-11T15:40:33.614Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Public\\Public Projects\\Sample\\C-Sharp_Program\\c-sharp_coding_preparation\\Preparation\\MyPrograms\\Program.cs",
+              "RelativeDocumentMoniker": "MyPrograms\\Program.cs",
+              "ToolTip": "C:\\Users\\Public\\Public Projects\\Sample\\C-Sharp_Program\\c-sharp_coding_preparation\\Preparation\\MyPrograms\\Program.cs",
+              "RelativeToolTip": "MyPrograms\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-11T15:39:30.955Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

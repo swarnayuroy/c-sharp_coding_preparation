@@ -1,0 +1,6 @@
+C:\Users\Public\Public Projects\Sample\C-Sharp_Program\c-sharp_coding_preparation\Preparation\Programs\bin\Debug\Programs.dll
+C:\Users\Public\Public Projects\Sample\C-Sharp_Program\c-sharp_coding_preparation\Preparation\Programs\bin\Debug\Programs.pdb
+C:\Users\Public\Public Projects\Sample\C-Sharp_Program\c-sharp_coding_preparation\Preparation\Programs\obj\Debug\Programs.csproj.AssemblyReference.cache
+C:\Users\Public\Public Projects\Sample\C-Sharp_Program\c-sharp_coding_preparation\Preparation\Programs\obj\Debug\Programs.csproj.CoreCompileInputs.cache
+C:\Users\Public\Public Projects\Sample\C-Sharp_Program\c-sharp_coding_preparation\Preparation\Programs\obj\Debug\Programs.dll
+C:\Users\Public\Public Projects\Sample\C-Sharp_Program\c-sharp_coding_preparation\Preparation\Programs\obj\Debug\Programs.pdb
