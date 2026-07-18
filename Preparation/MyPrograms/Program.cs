@@ -53,6 +53,22 @@ namespace MyPrograms
 
                             IMiscellaneousProgram miscellaneousProgram = new MiscellaneousProgram();
 
+                            #region Printing the pairs of numbers that sums up to a given target value
+
+                            Console.Write("Enter a set of numbers separated by commas: "); 
+                            string userInput5 = Console.ReadLine(); 
+                            if (string.IsNullOrEmpty(userInput5))
+                            {
+                                throw new Exception("Couldn't proceed with miscellaneous operations further with empty inputs!");
+                            }
+                            int[] numbersInput5 = userInput5.Split(',').Select(int.Parse).ToArray();
+                            Console.Write("Enter the target value: ");
+                            int targetValue = int.Parse(Console.ReadLine());
+
+                            miscellaneousProgram.Print_Pairs_that_sums_up_Target_Value(numbersInput5, targetValue).Wait();
+
+                            #endregion
+
                             #region Printing the array elements after right shifting them by a given number of times
 
                             Console.Write("Enter a set of numbers separated by commas: ");

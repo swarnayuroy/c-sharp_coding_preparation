@@ -13,6 +13,7 @@ namespace Programs
         Task Print_Nth_Largest_Number(double[] numbers, int n_th_Index);
         Task Print_Max_Negated_Number(double[] numbers);
         Task Right_Shift_and_Print_Array_elements(int[] numbers, int times);
+        Task Print_Pairs_that_sums_up_Target_Value(int[] numbers, int targetValue);
     }
 
     public class MiscellaneousProgram : IMiscellaneousProgram, IPrintService
@@ -24,6 +25,10 @@ namespace Programs
             if (data is int[] numbers)
             {
                 result = string.Join(", ", numbers);
+            }
+            else if (data is List<string> pairs)
+            {
+                result = string.Join(", ", pairs);
             }
             else
             {
@@ -98,6 +103,40 @@ namespace Programs
             return Task.CompletedTask;
         }
 
+        public Task Print_Pairs_that_sums_up_Target_Value(int[] numbers, int targetValue)
+        {
+            if (numbers.Length > 1)
+            {
+                List<string> pairs = new List<string>();
+                for (int i = 0; i < numbers.Length - 1; i++)
+                {
+                    for (int j = i + 1; j < numbers.Length; j++)
+                    {
+                        if (numbers[i] + numbers[j] == targetValue)
+                        {
+                            pairs.Add($"({numbers[i]}, {numbers[j]})");
+                        }
+                    }
+                }
+                if (pairs.Count > 0)
+                {
+                    PrintResult(
+                        pairs,
+                        $"The pairs in the given set [{string.Join(", ", numbers)}] that sum up to {targetValue} are: "
+                    );
+                }
+                else
+                {
+                    Console.WriteLine($"No pairs in the given set [{string.Join(", ", numbers)}] sums up to {targetValue}.\n");
+                }
+            }
+            else
+            {
+                Console.WriteLine("We didn't find any number set to perform the operation.");
+            }
+            return Task.CompletedTask;
+        }
+
         public Task Print_till_Sums_up_single_Digit(int number)
         {
             if (number > 0)
@@ -117,7 +156,7 @@ namespace Programs
             }
             else
             {
-                Console.WriteLine("Please enter at least a double digit positive number");
+                Console.WriteLine("Please enter at least a double digit positive number!\n");
             }
             return Task.CompletedTask;
         }
