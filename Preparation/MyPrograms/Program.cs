@@ -14,7 +14,7 @@ namespace MyPrograms
             while (true)
             {
                 Console.Clear();
-                Console.WriteLine("Select any choice of your program to execute:\n1. String Programs\n2. Miscellaneous Programs");
+                Console.WriteLine("Select any choice of your program to execute:\n1. String Programs\n2. Miscellaneous String Programs\n3. Miscellaneous Programs");
                 Console.Write("Enter your choice: ");
                 int choice = int.Parse(Console.ReadLine());
 
@@ -48,6 +48,40 @@ namespace MyPrograms
                             Console.ReadKey();
                             break;
                         case 2:
+                            Console.Clear();
+                            #region Miscellaneous String Programs
+                            IMiscellaneousStringProgram miscellaneousStringProgram = new MiscellaneousStringProgram();
+
+                            #region Replace Letter with Special Character in a given string
+
+                            Console.Write("Enter a statement: ");
+                            string statement = Console.ReadLine();
+                            if (string.IsNullOrEmpty(statement))
+                            {
+                                throw new Exception("Statement cannot be empty!");
+                            }
+                            Console.Write("Enter any letter from the statement to replace with special character('$', '#', '@') comma separated: ");
+                            string letter_and_character_Input = Console.ReadLine();
+                            if (string.IsNullOrEmpty(letter_and_character_Input))
+                            {
+                                throw new Exception("Letter and special character input cannot be empty!");
+                            }
+                            char[] charInput = letter_and_character_Input.Split(',').Select(char.Parse).ToArray();
+
+                            miscellaneousStringProgram.Replace_Letter_with_Special_Character(statement, charInput[0], charInput.Length > 1 ? charInput[1] : '$').Wait();
+                            #endregion
+
+                            #region Reorder given String by Prefixed Number
+
+                            miscellaneousStringProgram.Reorder_given_String_by_Prefixed_Number().Wait();
+
+                            #endregion
+
+                            #endregion
+
+                            Console.ReadKey();
+                            break;
+                        case 3:
                             Console.Clear();
                             #region Miscellaneous Programs
 
