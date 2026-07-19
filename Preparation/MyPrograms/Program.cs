@@ -14,7 +14,7 @@ namespace MyPrograms
             while (true)
             {
                 Console.Clear();
-                Console.WriteLine("Select any choice of your program to execute:\n1. String Programs\n2. Miscellaneous String Programs\n3. Miscellaneous Programs");
+                Console.WriteLine("Select any choice of your program to execute:\n1. String Programs\n2. Miscellaneous String Programs\n3. Miscellaneous Programs\n4. LINQ Programs");
                 Console.Write("Enter your choice: ");
                 int choice = int.Parse(Console.ReadLine());
 
@@ -182,6 +182,24 @@ namespace MyPrograms
 
                             #endregion
 
+                            Console.ReadKey();
+                            break;
+                        case 4:
+                            Console.Clear();
+                            #region LINQ Programs
+                            ILINQ_Program linqProgram = new LINQ_Program();
+
+                            #region Listing Details
+                            linqProgram.Print_Employee_Details().Wait();
+                            linqProgram.Print_Department_Details().Wait();
+                            linqProgram.Print_Insurance_Details().Wait();
+                            #endregion
+
+                            linqProgram.Print_Employee_Department_Insurance_Details().Wait();
+                            linqProgram.Print_Employees_with_or_without_Department().Wait();
+                            linqProgram.Print_Employees_in_each_Department_Details().Wait();
+
+                            #endregion
                             Console.ReadKey();
                             break;
                         default:

@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IPrintService.cs" />
+    <Compile Include="LINQ_Program.cs" />
     <Compile Include="MiscellaneousProgram.cs" />
     <Compile Include="MiscellaneousStringProgram.cs" />
     <Compile Include="StringProgram.cs" />

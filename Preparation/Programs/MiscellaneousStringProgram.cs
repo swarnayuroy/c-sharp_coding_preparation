@@ -42,7 +42,7 @@ namespace Programs
 
         public Task Reorder_given_String_by_Prefixed_Number(string defaultInput = "11|AA|ABC, 14|BB|QOP, 12|CC|WER")
         {
-            Console.WriteLine($"The default input string is: {defaultInput}");
+            Console.WriteLine($"\nThe default input string is: {defaultInput}");
             var resultArr = (from item in defaultInput.Split(',') 
                              orderby Convert.ToInt16(item.Split('|')[0]) 
                              select item.Trim()).ToList<string>();
