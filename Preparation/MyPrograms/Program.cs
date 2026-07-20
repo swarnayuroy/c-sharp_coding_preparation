@@ -195,9 +195,10 @@ namespace MyPrograms
                             linqProgram.Print_Insurance_Details().Wait();
                             #endregion
 
-                            //linqProgram.Print_Employee_Department_Insurance_Details().Wait();
-                            //linqProgram.Print_Employees_with_or_without_Department().Wait();
-                            //linqProgram.Print_Employees_in_each_Department_Details().Wait();
+                            linqProgram.Print_Employee_Department_Insurance_Details().Wait();
+                            linqProgram.Print_Employees_with_or_without_Department().Wait();
+                            linqProgram.Print_Employees_in_each_Department_Details().Wait();
+                            linqProgram.Print_Employees_with_Highest_Salary().Wait();
 
                             Console.Write("\nEnter the index of the highest salary you want to display: ");
                             int nth_Highestvalue = int.Parse(Console.ReadLine());

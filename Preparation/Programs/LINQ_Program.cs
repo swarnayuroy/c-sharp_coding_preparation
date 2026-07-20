@@ -15,6 +15,7 @@ namespace Programs
         Task Print_Employee_Department_Insurance_Details ();
         Task Print_Employees_in_each_Department_Details();
         Task Print_Employees_with_or_without_Department();
+        Task Print_Employees_with_Highest_Salary();
         Task Print_Employees_Details_having_Nth_Highest_Salary(int nth_Highestvalue);
     }
 
@@ -44,11 +45,14 @@ namespace Programs
         public LINQ_Program()
         {
             this._empList = new List<Employee>{
-                new Employee(){empId=1, empName="John Doe", designation="Engineer", salary=80000, deptId=1},
-                new Employee(){empId=2, empName="Max Miller", designation="Engineer", salary=60000, deptId=1},
-                new Employee(){empId=3, empName="Jane Doe", designation="L4 Manager", salary=80000, deptId=2},
-                new Employee(){empId=4, empName="David Cox", designation="L1 Manager", salary=80000, deptId=2},
-                new Employee(){empId=5, empName="David Miller", designation="Accountant", salary=85000, deptId=3},
+                new Employee(){empId=1, empName="John Doe", designation="Sr Engineer", salary=85000, deptId=1},
+                new Employee(){empId=2, empName="Andrew Hall", designation="Engineer-II", salary=80000, deptId=1},
+                new Employee(){empId=3, empName="Max Miller", designation="Engineer-I", salary=60000, deptId=1},
+                new Employee(){empId=4, empName="Jane Doe", designation="L4 Manager", salary=85000, deptId=2},
+                new Employee(){empId=5, empName="David Cox", designation="L1 Manager", salary=80000, deptId=2},
+                new Employee(){empId=6, empName="Michelle Freeman", designation="Sr Executive", salary=60000, deptId=2},
+                new Employee(){empId=7, empName="David Miller", designation="Accountant", salary=85000, deptId=3},
+                new Employee(){empId=8, empName="Joseph Smith", designation="Sr Engineer", salary=85000, deptId=1}
             };
 
             this._deptList = new List<Department>{
@@ -62,6 +66,9 @@ namespace Programs
                 new EmployeeInsurance(){empId=3, insuranceDetail="TATA AIG"},
                 new EmployeeInsurance(){empId=4, insuranceDetail="ICICI Lombard"},
                 new EmployeeInsurance(){empId=5, insuranceDetail="LIC"},
+                new EmployeeInsurance(){empId=6, insuranceDetail="LIC"},
+                new EmployeeInsurance(){empId=7, insuranceDetail="HDFC Ergo"},
+                new EmployeeInsurance(){empId=8, insuranceDetail="TATA AIG"}
             };
         }
 
@@ -110,6 +117,14 @@ namespace Programs
                 foreach (EmployeeDepartmentInsuranceDTO detail in innerJoinResult)
                 {
                     Console.WriteLine($"Employee ID: {detail.EmployeeId}, Employee Name: {detail.EmployeeName}, Department: {detail.Department}, Insurance: {detail.Insurance}");
+                }
+            }
+            else if (data is List<MaxSalaryDTO> maxSalaryResults)
+            {
+                Console.WriteLine($"\n{message}");
+                foreach (MaxSalaryDTO detail in maxSalaryResults)
+                {
+                    Console.WriteLine($"Department: {detail.Department}, Max Salary: {detail.MaxSalary}, Employees: {detail.Employees}");
                 }
             }
             return Task.CompletedTask;
@@ -227,6 +242,35 @@ namespace Programs
         }
 
         #endregion
+
+        #region Employees with highest salary in each department
+
+        public Task Print_Employees_with_Highest_Salary()
+        {
+            var highestSalaryInDept = from employee in Employee
+                                      group employee by employee.deptId into empGroup
+                                      select new
+                                      {
+                                          DeptId = empGroup.Key,
+                                          MaxSalary = empGroup.Max(emp => emp.salary),
+                                          Employees = empGroup
+                                                      .Where(e => e.salary == empGroup.Max(emp => emp.salary))
+                                                      .Select(emp => emp.empName).ToList<string>()
+                                      };
+            var employeesWithHighestSalary = from department in Department
+                                              join deptMaxSalary in highestSalaryInDept
+                                              on department.deptId equals deptMaxSalary.DeptId
+                                              select new MaxSalaryDTO
+                                              {
+                                                  Department = department.deptName,
+                                                  MaxSalary = deptMaxSalary.MaxSalary,
+                                                  Employees = string.Join(", ", deptMaxSalary.Employees)
+                                              };
+            PrintResult(employeesWithHighestSalary.ToList(), "Listing down the employees with highest salary in each department:");
+            return Task.CompletedTask;
+        }
+
+        #endregion
     }
 
     #region DTO
@@ -242,6 +286,12 @@ namespace Programs
         public string EmployeeName;
         public string Department;
         public string Insurance;
+    }
+    public class MaxSalaryDTO
+    {
+        public string Department;
+        public double MaxSalary;
+        public string Employees;
     }
     #endregion
 }
