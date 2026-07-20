@@ -15,8 +15,8 @@ namespace Programs
         Task Print_Employee_Department_Insurance_Details ();
         Task Print_Employees_in_each_Department_Details();
         Task Print_Employees_with_or_without_Department();
+        Task Print_Employees_Details_having_Nth_Highest_Salary(int nth_Highestvalue);
     }
-
 
     public class Employee
     {
@@ -201,6 +201,28 @@ namespace Programs
                     Console.WriteLine($" - {employee.empName}");
                 }
             }
+            return Task.CompletedTask;
+        }
+
+        #endregion
+
+        #region Employees with Nth Highest Salary
+
+        public Task Print_Employees_Details_having_Nth_Highest_Salary(int nth_Highestvalue)
+        {
+            if (nth_Highestvalue < Employee.Count())
+            {
+                double nth_HighestSalary = (from e in Employee orderby e.salary descending select new { Salary = e.salary })
+                                            .Distinct()
+                                            .ToList()[nth_Highestvalue - 1].Salary;
+                var employeeResult = (from employee in Employee where employee.salary == nth_HighestSalary select employee).ToList<Employee>();
+
+                PrintResult(employeeResult, $"Listing down the employees having [{nth_Highestvalue}]th highest salary:");
+            }
+            else
+            {
+                Console.WriteLine($"Invalid value for Nth highest salary.");
+            }            
             return Task.CompletedTask;
         }
 
